@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the jinaga-replicator image
+      run: docker build ./jinaga-replicator --file Dockerfile --tag jinaga/jinaga-replicator:$(date +%s)
+      
+    - name: Build the jinaga-postgres-fact-keystore image
+      run: docker build ./jinaga-postgres-fact-keystore --file Dockerfile --tag jinaga/jinaga-postgres-fact-keystore:$(date +%s)
