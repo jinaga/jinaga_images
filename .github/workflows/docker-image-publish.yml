@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image Publish
 
 on:
   push:
@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - uses: actions/checkout@v2 
     - uses: dorny/paths-filter@v2
       id: changes
       with:
