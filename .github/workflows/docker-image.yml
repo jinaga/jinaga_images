@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the jinaga-replicator image
-      run: docker build ./jinaga-replicator --file Dockerfile --tag jinaga/jinaga-replicator:$(date +%s)
+      run: docker build ./jinaga-replicator --file ./jinaga-replicator/Dockerfile --tag jinaga/jinaga-replicator:$(date +%s)
       
     - name: Build the jinaga-postgres-fact-keystore image
-      run: docker build ./jinaga-postgres-fact-keystore --file Dockerfile --tag jinaga/jinaga-postgres-fact-keystore:$(date +%s)
+      run: docker build ./jinaga-postgres-fact-keystore --file ./jinaga-postgres-fact-keystore/Dockerfile --tag jinaga/jinaga-postgres-fact-keystore:$(date +%s)
